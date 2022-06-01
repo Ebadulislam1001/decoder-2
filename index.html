@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <title>Decoder2 - a fun logic game</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+      #head,
+      .form,
+      #footer {
+        width: 300px;
+      }
+    </style>
+  </head>
+
+  <body id="body" class="m-0 p-0 bg-gray-800">
+    <div id="main-col" class="flex flex-col items-center justify-center">
+      <div id="heading" class="my-4 flex flex-row items-center justify-center">
+        <h1 class="text-6xl my-1"><span class="text-yellow-500">De</span><span class="text-green-500">coder2</span></h1>
+      </div>
+
+      <div id="game-section" class="my-4 flex flex-col items-center justify-center">
+        <form id="form0" class="form m-2 flex flex-row items-center justify-evenly">
+          <input id="box00" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <input id="box01" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <input id="box02" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <button type="button" id="button0" class="check-button h-8 w-16 bg-gray-300 border-2 border-gray-500 rounded" onclick="check(0)">Check</button>
+          <input id="yellow0" class="w-8 h-8 bg-yellow-500 rounded pl-1 text-xl" type="number" readonly />
+          <input id="green0" class="w-8 h-8 bg-green-500 rounded pl-1 text-xl" type="number" readonly />
+        </form>
+
+        <form id="form1" class="form m-2 flex flex-row items-center justify-evenly">
+          <input id="box10" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <input id="box11" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <input id="box12" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <button type="button" id="button1" class="check-button h-8 w-16 bg-gray-300 border-2 border-gray-500 rounded" onclick="check(1)">Check</button>
+          <input id="yellow1" class="w-8 h-8 bg-yellow-500 rounded pl-1 text-xl" type="number" readonly />
+          <input id="green1" class="w-8 h-8 bg-green-500 rounded pl-1 text-xl" type="number" readonly />
+        </form>
+
+        <form id="form2" class="form m-2 flex flex-row items-center justify-evenly">
+          <input id="box20" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <input id="box21" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <input id="box22" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <button type="button" id="button2" class="check-button h-8 w-16 bg-gray-300 border-2 border-gray-500 rounded" onclick="check(2)">Check</button>
+          <input id="yellow2" class="w-8 h-8 bg-yellow-500 rounded pl-1 text-xl" type="number" readonly />
+          <input id="green2" class="w-8 h-8 bg-green-500 rounded pl-1 text-xl" type="number" readonly />
+        </form>
+
+        <form id="form3" class="form m-2 flex flex-row items-center justify-evenly">
+          <input id="box30" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <input id="box31" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <input id="box32" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <button type="button" id="button3" class="check-button h-8 w-16 bg-gray-300 border-2 border-gray-500 rounded" onclick="check(3)">Check</button>
+          <input id="yellow3" class="w-8 h-8 bg-yellow-500 rounded pl-1 text-xl" type="number" readonly />
+          <input id="green3" class="w-8 h-8 bg-green-500 rounded pl-1 text-xl" type="number" readonly />
+        </form>
+
+        <form id="form4" class="form m-2 flex flex-row items-center justify-evenly">
+          <input id="box40" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <input id="box41" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <input id="box42" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <button type="button" id="button4" class="check-button h-8 w-16 bg-gray-300 border-2 border-gray-500 rounded" onclick="check(4)">Check</button>
+          <input id="yellow4" class="w-8 h-8 bg-yellow-500 rounded pl-1 text-xl" type="number" readonly />
+          <input id="green4" class="w-8 h-8 bg-green-500 rounded pl-1 text-xl" type="number" readonly />
+        </form>
+
+        <form id="form5" class="form m-2 flex flex-row items-center justify-evenly">
+          <input id="box50" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <input id="box51" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <input id="box52" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <button type="button" id="button5" class="check-button h-8 w-16 bg-gray-300 border-2 border-gray-500 rounded" onclick="check(5)">Check</button>
+          <input id="yellow5" class="w-8 h-8 bg-yellow-500 rounded pl-1 text-xl" type="number" readonly />
+          <input id="green5" class="w-8 h-8 bg-green-500 rounded pl-1 text-xl" type="number" readonly />
+        </form>
+
+        <form id="form6" class="form m-2 flex flex-row items-center justify-evenly">
+          <input id="box60" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <input id="box61" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <input id="box62" class="w-8 h-8 rounded pl-1 text-xl" type="number" min="0" max="9" />
+          <button type="button" id="button6" class="check-button h-8 w-16 bg-gray-300 border-2 border-gray-500 rounded" onclick="check(6)">Check</button>
+          <input id="yellow6" class="w-8 h-8 bg-yellow-500 rounded pl-1 text-xl" type="number" readonly />
+          <input id="green6" class="w-8 h-8 bg-green-500 rounded pl-1 text-xl" type="number" readonly />
+        </form>
+
+        <form class="form m-2 flex flex-row items-center justify-evenly"><button type="button" id="reset-button" class="my-4 h-8 w-24 bg-gray-300 border-2 border-gray-500 rounded" onclick="reSet()">Reset</button></form>
+      </div>
+
+      <div id="footer" class="my-4 flex flex-col items-center justify-center text-white border-2 border-gray-500 rounded-xl">
+        <h3 class="text-2xl my-4"><span class="text-yellow-500">How to </span><span class="text-green-500">play ?</span></h3>
+        <p class="text-center px-4">This game involes guessing a 5 digit randomly generated code.</p>
+        <ul type="square" class="m-4 p-2">
+          <li>Enter a single digit (0-9) in each box of a row (horizontally) to make a 3-digit number.</li>
+          <li>Press the <span class="italic text-gray-500">Check</span> button next to it, to check your guess.</li>
+          <li><span class="italic text-yellow-500">Yellow</span> box indicates how many digits are matching in total.</li>
+          <li><span class="italic text-green-500">Green</span> box indicates how many numbers are matching and are at the correct place.</li>
+          <li>Use your logic to find the generated code in 7 attempts.</li>
+        </ul>
+        <p class="text-center px-4">
+          <span class="underline italic">Note</span>
+          : <br />Click on Reset to start a new game.<br />
+          Once you reset, a random 3 digit code is generated to guess in 7 attempts
+        </p>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      const code = [""];
+      let num = Math.floor(Math.random() * 10);
+      for (let i = 0; i < 3; i++) {
+        while (code.includes(num)) {
+          attempt = 0;
+          num = Math.floor(Math.random() * 10);
+        }
+        code[i] = num;
+      }
+      console.log("generated code:", code);
+      let attempts = 0;
+
+      function reSet() {
+        //To generate a new code and restart the game
+        console.clear();
+        attempts = 0;
+        let num = Math.floor(Math.random() * 10);
+        for (let i = 0; i < 3; i++) {
+          while (code.includes(num)) {
+            attempt = 0;
+            num = Math.floor(Math.random() * 10);
+          }
+          code[i] = num;
+        }
+        console.log("generated code:", code);
+        for (let row = 0; row < 7; row++) {
+          for (let i = 0; i < 3; i++) {
+            document.getElementById("box" + row + i).value = " ";
+            document.getElementById("box" + row + i).readOnly = false;
+            document.getElementById("box" + row + i).style.backgroundColor = "white";
+          }
+          document.getElementById("yellow" + row).value = " ";
+          document.getElementById("green" + row).value = " ";
+          document.getElementById("button" + row).disabled = false;
+        }
+      }
+
+      function check(row) {
+        attempts++;
+        const input = [""];
+        let yellow = 0;
+        let green = 0;
+        document.getElementById("button" + row).disabled = true;
+        for (i = 0; i < 3; i++) {
+          input[i] = +document.getElementById("box" + row + i).value;
+          document.getElementById("box" + row + i).readOnly = true;
+          if (code.includes(input[i])) {
+            yellow++;
+          }
+          if (code[i] === input[i]) {
+            green++;
+          }
+        }
+        document.getElementById("yellow" + row).value = yellow;
+        document.getElementById("green" + row).value = green;
+        if (green === 3) {
+          alert("Congratulations!\nYou Won!");
+          for (let i = 0; i < 3; i++) {
+            document.getElementById("box" + row + i).style.backgroundColor = "#48BB78";
+          }
+          for (let row = 0; row < 7; row++) {
+            for (let i = 0; i < 3; i++) {
+              document.getElementById("box" + row + i).readOnly = true;
+            }
+            document.getElementById("button" + row).disabled = true;
+          }
+        } else if (attempts === 7) {
+          alert("You Lost!\nTry Again!");
+        }
+      }
+    </script>
+  </body>
+</html>
